@@ -1,5 +1,9 @@
-.etch-block-init {
+.etch-block {
     border: 1px solid black;
+}
+
+.etch-block-selected {
+    background-color: black;
 }
 
 #etch-container{
