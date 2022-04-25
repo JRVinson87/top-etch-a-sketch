@@ -1,10 +1,11 @@
 .etch-block {
     border: 1px solid black;
+    
 }
 
 #etch-container{
+    width: 50vw;
+    height: 50vh;
     display: inline-grid;
-    grid-template-rows: repeat(16, 25px);
-    grid-template-columns: repeat(16, 25px);
     border: 1px solid black;
 }

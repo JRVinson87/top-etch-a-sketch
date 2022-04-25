@@ -1,14 +1,13 @@
-function createEtchWindow() {
-    const container = document.querySelector("#etch-container");
+function createEtchWindow(blocks) {
 
-    // set up a 16 by 16 etch window
-    for (let i = 0; i < 16; i++) {
-        for (let j = 0; j < 16; j++) {
-            const div = document.createElement("div");
-            div.classList.add('etch-block');
-            div.setAttribute('draggable', 'false');
-            container.appendChild(div);
-        }
+    container.style['grid-template-columns'] = `repeat(${blocks}, 1fr)`;
+    container.style['grid-template-rows'] = `repeat(${blocks}, 1fr)`;
+
+    for (let i = 0; i < Math.pow(blocks, 2); i++) {
+        const div = document.createElement("div");
+        div.classList.add('etch-block');
+        div.setAttribute('draggable', 'false');
+        container.appendChild(div);
     }
 }
 
@@ -21,12 +20,12 @@ function sketchListener() {
     
     if (!inkActive) {
         block.forEach(div => {
-            div.addEventListener('mouseenter', colorBlock);
+            div.addEventListener('mouseover', colorBlock);
         })
         inkActive = true;
     } else { 
         block.forEach(div => {
-            div.removeEventListener('mouseenter', colorBlock); 
+            div.removeEventListener('mouseover', colorBlock); 
     })
         inkActive = false;
     }
@@ -35,7 +34,7 @@ function sketchListener() {
 const container = document.querySelector("#etch-container");
 let inkActive = false;
 
-createEtchWindow();
+createEtchWindow(10);
 
 
 container.addEventListener('click', sketchListener);
