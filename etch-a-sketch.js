@@ -20,13 +20,11 @@ function sketchListener() {
     const block = document.querySelectorAll("div.etch-block");
     
     if (!inkActive) {
-        console.log(inkActive);
         block.forEach(div => {
             div.addEventListener('mouseenter', colorBlock);
         })
         inkActive = true;
     } else { 
-        console.log(inkActive);
         block.forEach(div => {
             div.removeEventListener('mouseenter', colorBlock); 
     })
